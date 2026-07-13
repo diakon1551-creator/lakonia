@@ -45,10 +45,12 @@ export async function POST(req: Request) {
 
     return response;
 
-  } catch {
-    return NextResponse.json(
-      { error: "Помилка сервера." },
-      { status: 500 }
-    );
-  }
+} catch (error) {
+  console.error(error);
+
+  return NextResponse.json(
+    { error: String(error) },
+    { status: 500 }
+  );
+}
 }
