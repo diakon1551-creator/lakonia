@@ -38,6 +38,13 @@ export async function POST(req: Request) {
       },
     });
 
+    if (!resend) {
+      return NextResponse.json(
+        { error: "Пошта тимчасово недоступна." },
+        { status: 500 }
+      );
+    }
+
     await resend.emails.send({
       from: "LAKONIA <onboarding@resend.dev>",
       to: email,
