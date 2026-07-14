@@ -1,9 +1,6 @@
-import dynamic from "next/dynamic";
+"use client";
 
-const LakoniaMap = dynamic(
-  () => import("@/components/LakoniaMap"),
-  { ssr: false }
-);
+import LakoniaMap from "../../components/LakoniaMap";
 
 export default function VerifyPlacePage() {
   return (
@@ -18,7 +15,9 @@ export default function VerifyPlacePage() {
           Відвідайте місце та підтвердьте або спростуйте замітку.
         </p>
 
-        <LakoniaMap />
+        <div className="rounded-[24px] overflow-hidden shadow-lg border border-[#e5d5b7]">
+          <LakoniaMap />
+        </div>
 
       </div>
     </main>
