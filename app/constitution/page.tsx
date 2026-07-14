@@ -1,26 +1,48 @@
 import Link from "next/link";
+import {
+  Hourglass,
+  Moon,
+  Feather,
+  EyeOff,
+  Trophy,
+  Scale,
+  ShieldCheck,
+  Handshake,
+  BookOpen,
+  Compass,
+} from "lucide-react";
 
 export default function ConstitutionPage() {
   return (
     <main className="min-h-screen bg-[#f7f2ea] text-[#37253f]">
 
-      <div className="max-w-4xl mx-auto px-8 py-12">
+      <div className="max-w-7xl mx-auto px-6 py-12">
+
+        {/* Логотип */}
 
         <div className="flex justify-center mb-8">
           <Link href="/">
             <img
               src="/logo.png"
               alt="LAKONIA"
-              className="w-32 h-auto cursor-pointer"
+              className="w-28 h-auto cursor-pointer"
             />
           </Link>
         </div>
 
-        <h1 className="font-serif text-6xl text-center tracking-wide">
+        {/* Заголовок */}
+
+        <h1 className="text-center font-serif text-6xl text-[#37253f]">
           Конституція Лаконії
         </h1>
 
-        <div className="flex items-center justify-center gap-4 mt-8">
+        <p className="text-center text-xl italic mt-4 text-[#6b5b71]">
+          Місце, де слова мають вагу.
+        </p>
+
+        {/* Розділювач */}
+
+        <div className="flex items-center justify-center gap-4 mt-8 mb-12">
 
           <div className="w-24 h-px bg-[#c8a35d]" />
 
@@ -32,56 +54,137 @@ export default function ConstitutionPage() {
 
         </div>
 
-        <p className="text-center italic text-2xl mt-8 text-[#5b4b61]">
-          Лаконія — це місце, де слова мають вагу.
-        </p>
+        {/* Дві колонки */}
 
-        <div className="mt-12 space-y-6">
+        <div className="grid lg:grid-cols-2 gap-10">
 
-          <Article
-            number="1"
-            title="Слова мають вагу"
-            text="Пиши лише тоді, коли справді маєш що сказати."
-          />
+          {/* Ліліт */}
 
-          <Article
-            number="2"
-            title="Поважай інших"
-            text="Критикуй думки, а не людей."
-          />
+          <section
+            className="
+            rounded-[34px]
+            bg-white/80
+            backdrop-blur-sm
+            border border-[#e5d5b7]
+            shadow-[0_10px_35px_rgba(0,0,0,0.08)]
+            p-8
+          "
+          >
+            <h2 className="font-serif text-5xl text-[#a87b2c] mb-8">
+              Ліліт
+            </h2>
 
-          <Article
-            number="3"
-            title="Не засмічуй простір"
-            text="Якість важливіша за кількість."
-          />
+            <div className="space-y-8">
 
-          <Article
-            number="4"
-            title="Будь чесним"
-            text="Не видавай чуже за своє."
-          />
+              <Rule
+                icon={<Hourglass size={34} />}
+                title="Час належить людині"
+                text="Ліліт не прагне утримувати увагу користувача довше, ніж це необхідно. Життя важливіше за перебування в Лаконії."
+              />
 
-          <Article
-            number="5"
-            title="Будуй Лаконію разом з нами"
-            text="Кожен учасник впливає на майбутнє спільноти."
-          />
+              <Rule
+                icon={<Moon size={34} />}
+                title="Мовчання не є провиною"
+                text="Ліліт не карає за пасивність, відсутність чи тривале мовчання. Кожен говорить лише тоді, коли справді має що сказати."
+              />
+
+              <Rule
+                icon={<Feather size={34} />}
+                title="Слова належать автору"
+                text="Ліліт не редагує, не цензурує і не оцінює тексти. Відповідальність за слова несе їхній автор."
+              />
+
+              <Rule
+                icon={<EyeOff size={34} />}
+                title="Людина не є об'єктом спостереження"
+                text="Ліліт не вивчає користувачів, не створює психологічних профілів і не підбирає контент на основі поведінки."
+              />
+
+              <Rule
+                icon={<Trophy size={34} />}
+                title="Без рейтингів і змагання"
+                text="Ліліт не виставляє оцінок, не формує рейтингів і не перетворює спілкування на боротьбу за популярність."
+              />
+
+              <Rule
+                icon={<Scale size={34} />}
+                title="Слова мають вагу"
+                text="Ліліт веде лише облік слів. Вона не визначає їхню цінність, але нагадує, що кожне слово має вагу."
+              />
+
+            </div>
+          </section>
+
+          {/* Учасник */}
+
+          <section
+            className="
+            rounded-[34px]
+            bg-white/80
+            backdrop-blur-sm
+            border border-[#e5d5b7]
+            shadow-[0_10px_35px_rgba(0,0,0,0.08)]
+            p-8
+          "
+          >
+            <h2 className="font-serif text-5xl text-[#a87b2c] mb-8">
+              Учасник Лаконії
+            </h2>
+
+            <div className="space-y-8">
+
+              <Rule
+                icon={<ShieldCheck size={34} />}
+                title="Повноліття"
+                text="Учасником Лаконії може бути лише повнолітня людина, здатна самостійно відповідати за свої слова."
+              />
+
+              <Rule
+                icon={<Handshake size={34} />}
+                title="Повага до співрозмовника"
+                text="Дозволяється критикувати думки, ідеї та погляди. Не допускаються образи, приниження та перехід на особистості."
+              />
+
+              <Rule
+                icon={<BookOpen size={34} />}
+                title="Чесність"
+                text="Не видавай чуже за своє. Не приписуй собі того, чого не робив і не знаєш."
+              />
+
+              <Rule
+                icon={<Compass size={34} />}
+                title="Відповідальність за сказане"
+                text="Перш ніж говорити, варто замислитися. Після сказаного відповідальність залишається за автором."
+              />
+
+            </div>
+          </section>
 
         </div>
 
-        <div className="mt-14 text-center">
+        {/* Кнопка */}
+
+        <div className="text-center mt-14">
 
           <Link
             href="/register"
-            className="inline-block rounded-xl bg-[#311b37] px-8 py-4 text-white hover:opacity-90 transition"
+            className="
+              inline-block
+              px-8
+              py-4
+              rounded-xl
+              bg-[#311b37]
+              text-white
+              hover:opacity-90
+              transition
+            "
           >
             Повернутися до реєстрації
           </Link>
 
         </div>
 
-        <footer className="mt-16 text-center text-sm text-[#8b7c6d]">
+        <footer className="mt-16 text-center text-sm text-[#8a7d72]">
           © LAKONIA 2026 • v0.0.2
         </footer>
 
@@ -91,31 +194,34 @@ export default function ConstitutionPage() {
   );
 }
 
-function Article({
-  number,
+function Rule({
+  icon,
   title,
   text,
 }: {
-  number: string;
+  icon: React.ReactNode;
   title: string;
   text: string;
 }) {
   return (
-    <div
-      className="rounded-[24px] bg-white/80 border border-[#e5d5b7]
-      shadow-[0_10px_35px_rgba(0,0,0,0.06)] p-6"
-    >
-      <div className="text-[#b78d3d] font-serif text-xl mb-2">
-        Стаття {number}
+    <div className="flex gap-4">
+
+      <div className="text-[#b78d3d] mt-1 flex-shrink-0">
+        {icon}
       </div>
 
-      <h2 className="font-serif text-3xl mb-3">
-        {title}
-      </h2>
+      <div>
 
-      <p className="text-lg">
-        {text}
-      </p>
+        <h3 className="font-serif text-2xl mb-2">
+          {title}
+        </h3>
+
+        <p className="text-[17px] leading-7 text-[#4d4052]">
+          {text}
+        </p>
+
+      </div>
+
     </div>
   );
 }
