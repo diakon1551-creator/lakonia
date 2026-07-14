@@ -1,4 +1,18 @@
+"use client";
+
+import { useState } from "react";
+
 export default function AddPlacePage() {
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+
+  const wordCount = description
+    .trim()
+    .split(/\s+/)
+    .filter(Boolean).length;
+
+  const isTooLong = wordCount > 50;
+
   return (
     <main className="min-h-screen bg-[#f7f2ea] text-[#37253f]">
       <div className="max-w-3xl mx-auto px-8 py-12">
@@ -15,30 +29,37 @@ export default function AddPlacePage() {
 
           <input
             type="text"
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
             placeholder="Назва місця"
-            className="w-full p-4 rounded-xl border"
+            className="w-full p-4 rounded-xl border border-[#d9c9a7] bg-white"
           />
 
-          <textarea
-            placeholder="Що знаходиться тут? (до 50 слів)"
-            rows={5}
-            className="w-full p-4 rounded-xl border"
-          />
+          <div>
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Опишіть це місце (до 50 слів)"
+              rows={6}
+              className="w-full p-4 rounded-xl border border-[#d9c9a7] bg-white resize-none"
+            />
 
-          <input
-            type="text"
-            placeholder="Широта"
-            className="w-full p-4 rounded-xl border"
-          />
-
-          <input
-            type="text"
-            placeholder="Довгота"
-            className="w-full p-4 rounded-xl border"
-          />
+            <div
+              className={`mt-2 text-right text-lg ${
+                isTooLong ? "text-red-600" : "text-[#666]"
+              }`}
+            >
+              {wordCount} / 50 слів
+            </div>
+          </div>
 
           <button
-            className="w-full p-4 rounded-xl bg-[#b78d3d] text-white font-semibold"
+            disabled={isTooLong}
+            className={`w-full p-4 rounded-xl text-white font-semibold transition ${
+              isTooLong
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-[#b78d3d] hover:opacity-90"
+            }`}
           >
             Надіслати Ліліт
           </button>
