@@ -1,17 +1,9 @@
-import dynamic from "next/dynamic";
-
-const LakoniaMap = dynamic(
-  () => import("../../components/LakoniaMap"),
-  {
-    ssr: false,
-  }
-);
+import LakoniaMap from "../../components/LakoniaMap";
 
 export default function VerifyPlacePage() {
   return (
     <main className="min-h-screen bg-[#f7f2ea] text-[#37253f]">
       <div className="max-w-6xl mx-auto px-8 py-12">
-
         <h1 className="font-serif text-6xl text-[#a87b2c] text-center">
           Перевірити місце
         </h1>
@@ -21,7 +13,6 @@ export default function VerifyPlacePage() {
         </p>
 
         <LakoniaMap />
-
       </div>
     </main>
   );
