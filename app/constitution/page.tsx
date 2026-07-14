@@ -1,73 +1,121 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function ConstitutionPage() {
   return (
-    <main className="min-h-screen bg-[#f7f2ea] px-6 py-12">
+    <main className="min-h-screen bg-[#f7f2ea] text-[#37253f]">
 
-      <div className="max-w-3xl mx-auto">
+      <div className="max-w-4xl mx-auto px-8 py-12">
 
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-8">
           <Link href="/">
-  <img
-    src="/logo.png"
-    alt="LAKONIA"
-    width={120}
-    className="h-auto cursor-pointer"
-  />
-</Link>
+            <img
+              src="/logo.png"
+              alt="LAKONIA"
+              className="w-32 h-auto cursor-pointer"
+            />
+          </Link>
         </div>
 
-        <h1 className="text-4xl font-serif text-center text-[#37253f] mb-10">
+        <h1 className="font-serif text-6xl text-center tracking-wide">
           Конституція Лаконії
         </h1>
 
-        <p className="text-xl text-center italic mb-12 text-[#46344c]">
+        <div className="flex items-center justify-center gap-4 mt-8">
+
+          <div className="w-24 h-px bg-[#c8a35d]" />
+
+          <div className="text-[#b78d3d] text-xl">
+            ✦
+          </div>
+
+          <div className="w-24 h-px bg-[#c8a35d]" />
+
+        </div>
+
+        <p className="text-center italic text-2xl mt-8 text-[#5b4b61]">
           Лаконія — це місце, де слова мають вагу.
         </p>
 
-        <div className="space-y-8 text-lg leading-8 text-[#37253f]">
+        <div className="mt-12 space-y-6">
 
-          <section>
-            <h2 className="font-semibold mb-2">1. Слова мають вагу.</h2>
-            <p>Пиши лише тоді, коли справді маєш що сказати.</p>
-          </section>
+          <Article
+            number="1"
+            title="Слова мають вагу"
+            text="Пиши лише тоді, коли справді маєш що сказати."
+          />
 
-          <section>
-            <h2 className="font-semibold mb-2">2. Поважай інших.</h2>
-            <p>Критикуй думки, а не людей.</p>
-          </section>
+          <Article
+            number="2"
+            title="Поважай інших"
+            text="Критикуй думки, а не людей."
+          />
 
-          <section>
-            <h2 className="font-semibold mb-2">3. Не засмічуй простір.</h2>
-            <p>Якість важливіша за кількість.</p>
-          </section>
+          <Article
+            number="3"
+            title="Не засмічуй простір"
+            text="Якість важливіша за кількість."
+          />
 
-          <section>
-            <h2 className="font-semibold mb-2">4. Будь чесним.</h2>
-            <p>Не видавай чуже за своє.</p>
-          </section>
+          <Article
+            number="4"
+            title="Будь чесним"
+            text="Не видавай чуже за своє."
+          />
 
-          <section>
-            <h2 className="font-semibold mb-2">5. Будуй Лаконію разом з нами.</h2>
-            <p>Кожен учасник впливає на майбутнє спільноти.</p>
-          </section>
+          <Article
+            number="5"
+            title="Будуй Лаконію разом з нами"
+            text="Кожен учасник впливає на майбутнє спільноти."
+          />
 
         </div>
 
         <div className="mt-14 text-center">
+
           <Link
             href="/register"
-            className="inline-block bg-[#311b37] text-white rounded-xl px-8 py-4 hover:opacity-90 transition"
+            className="inline-block rounded-xl bg-[#311b37] px-8 py-4 text-white hover:opacity-90 transition"
           >
             Повернутися до реєстрації
           </Link>
+
         </div>
-<footer className="mt-16 pb-6 text-center text-sm text-gray-500">
-  © LAKONIA 2026 • v0.0.2
-</footer>
+
+        <footer className="mt-16 text-center text-sm text-[#8b7c6d]">
+          © LAKONIA 2026 • v0.0.2
+        </footer>
+
       </div>
 
     </main>
+  );
+}
+
+function Article({
+  number,
+  title,
+  text,
+}: {
+  number: string;
+  title: string;
+  text: string;
+}) {
+  return (
+    <div
+      className="rounded-[24px] bg-white/80 border border-[#e5d5b7]
+      shadow-[0_10px_35px_rgba(0,0,0,0.06)] p-6"
+    >
+      <div className="text-[#b78d3d] font-serif text-xl mb-2">
+        Стаття {number}
+      </div>
+
+      <h2 className="font-serif text-3xl mb-3">
+        {title}
+      </h2>
+
+      <p className="text-lg">
+        {text}
+      </p>
+    </div>
   );
 }
