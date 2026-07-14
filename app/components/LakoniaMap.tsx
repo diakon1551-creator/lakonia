@@ -12,11 +12,10 @@ export default function LakoniaMap() {
       style={{
         height: "70vh",
         width: "100%",
-        borderRadius: "24px",
       }}
     >
       <TileLayer
-        attribution='&copy; OpenStreetMap contributors'
+        attribution="&copy; OpenStreetMap contributors"
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
     </MapContainer>
