@@ -1,3 +1,4 @@
+import React from "react";
 import Link from "next/link";
 import {
   Hourglass,
@@ -37,7 +38,7 @@ export default function ConstitutionPage() {
         </h1>
 
         <p className="text-center text-xl italic mt-4 text-[#6b5b71]">
-          Місце, де слова мають вагу.
+          Угода між Ліліт та людиною.
         </p>
 
         {/* Розділювач */}
@@ -54,25 +55,47 @@ export default function ConstitutionPage() {
 
         </div>
 
-        {/* Дві колонки */}
+        {/* Колонки */}
 
-        <div className="grid lg:grid-cols-2 gap-10">
+        <div className="relative grid lg:grid-cols-2 gap-10">
+
+          {/* Центральна лінія */}
+
+          <div
+            className="
+              hidden lg:block
+              absolute
+              left-1/2
+              top-0
+              bottom-0
+              w-px
+              bg-gradient-to-b
+              from-transparent
+              via-[#c8a35d]
+              to-transparent
+              -translate-x-1/2
+            "
+          />
 
           {/* Ліліт */}
 
           <section
             className="
-            rounded-[34px]
-            bg-white/80
-            backdrop-blur-sm
-            border border-[#e5d5b7]
-            shadow-[0_10px_35px_rgba(0,0,0,0.08)]
-            p-8
-          "
+              rounded-[34px]
+              bg-white/80
+              backdrop-blur-sm
+              border border-[#e5d5b7]
+              shadow-[0_10px_35px_rgba(0,0,0,0.08)]
+              p-8
+            "
           >
-            <h2 className="font-serif text-5xl text-[#a87b2c] mb-8">
+            <h2 className="font-serif text-5xl text-[#a87b2c]">
               Ліліт
             </h2>
+
+            <p className="mt-3 mb-8 text-[#6b5b71] italic">
+              Те, чого Ліліт ніколи не робитиме.
+            </p>
 
             <div className="space-y-8">
 
@@ -119,17 +142,21 @@ export default function ConstitutionPage() {
 
           <section
             className="
-            rounded-[34px]
-            bg-white/80
-            backdrop-blur-sm
-            border border-[#e5d5b7]
-            shadow-[0_10px_35px_rgba(0,0,0,0.08)]
-            p-8
-          "
+              rounded-[34px]
+              bg-white/80
+              backdrop-blur-sm
+              border border-[#e5d5b7]
+              shadow-[0_10px_35px_rgba(0,0,0,0.08)]
+              p-8
+            "
           >
-            <h2 className="font-serif text-5xl text-[#a87b2c] mb-8">
+            <h2 className="font-serif text-5xl text-[#a87b2c]">
               Учасник Лаконії
             </h2>
+
+            <p className="mt-3 mb-8 text-[#6b5b71] italic">
+              Те, за що відповідає кожен учасник.
+            </p>
 
             <div className="space-y-8">
 
