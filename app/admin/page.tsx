@@ -17,10 +17,14 @@ export default async function AdminPage() {
     },
   });
 
-  return (
-    <main className="min-h-screen bg-[#f7f2ea] text-[#37253f] p-10">
+  const engagement =
+    notesCount > 0
+      ? Math.round((repliesCount / notesCount) * 100)
+      : 0;
 
-      <div className="max-w-5xl mx-auto">
+  return (
+    <main className="min-h-screen bg-[#f7f2ea] text-[#37253f]">
+      <div className="max-w-5xl mx-auto px-8 py-12">
 
         <h1 className="font-serif text-6xl text-center mb-12">
           Адміністрування Лаконії
@@ -45,8 +49,35 @@ export default async function AdminPage() {
 
         </div>
 
-      </div>
+        <div className="mt-12 text-center">
 
+          <p className="font-serif text-3xl text-[#a87b2c]">
+            Співвідношення відповідей до заміток
+          </p>
+
+          <p className="font-serif text-7xl mt-4">
+            {engagement}%
+          </p>
+
+        </div>
+
+        <div className="flex items-center justify-center gap-4 mt-12">
+
+          <div className="w-24 h-px bg-[#c8a35d]" />
+
+          <div className="text-[#c8a35d]">
+            ✦
+          </div>
+
+          <div className="w-24 h-px bg-[#c8a35d]" />
+
+        </div>
+
+        <p className="text-center mt-6 text-[#8a7d72]">
+          Слова мають вагу.
+        </p>
+
+      </div>
     </main>
   );
 }
