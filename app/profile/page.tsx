@@ -24,8 +24,8 @@ export default async function ProfilePage() {
 
   if (!user) {
     return (
-      <main className="min-h-screen flex items-center justify-center bg-[#f7f2ea]">
-        <p className="font-serif text-3xl">
+      <main className="min-h-screen flex items-center justify-center bg-[#f7f2ea] px-6">
+        <p className="font-serif text-xl md:text-3xl text-center">
           Користувача не знайдено.
         </p>
       </main>
@@ -41,7 +41,7 @@ export default async function ProfilePage() {
         backgroundPosition: "center bottom",
       }}
     >
-      <div className="max-w-5xl mx-auto px-8 py-8">
+      <div className="max-w-5xl mx-auto px-4 md:px-8 py-6 md:py-8">
 
         {/* Верх */}
 
@@ -49,7 +49,7 @@ export default async function ProfilePage() {
 
           <Link
             href="/dashboard"
-            className="text-[#b78d3d] text-6xl hover:opacity-70"
+            className="text-[#b78d3d] text-4xl md:text-6xl hover:opacity-70"
           >
             ‹
           </Link>
@@ -57,24 +57,24 @@ export default async function ProfilePage() {
           <img
             src="/logo.png"
             alt="Lakonia"
-            className="w-24"
+            className="w-14 md:w-24"
           />
 
-          <div className="w-12" />
+          <div className="w-8 md:w-12" />
 
         </div>
 
         {/* Автор */}
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-8 md:mt-10">
 
-          <h1 className="font-serif text-6xl">
+          <h1 className="font-serif text-3xl md:text-6xl break-all">
             {user.nickname}
           </h1>
 
-          <div className="w-32 h-px bg-[#c8a35d] mx-auto mt-4" />
+          <div className="w-20 md:w-32 h-px bg-[#c8a35d] mx-auto mt-4" />
 
-          <p className="mt-5 font-serif text-3xl text-[#a87b2c]">
+          <p className="mt-4 md:mt-5 font-serif text-2xl md:text-3xl text-[#a87b2c]">
             {user.wordBalance} слів
           </p>
 
@@ -82,27 +82,27 @@ export default async function ProfilePage() {
 
         {/* Риска */}
 
-        <div className="flex items-center justify-center gap-4 mt-12">
+        <div className="flex items-center justify-center gap-3 md:gap-4 mt-8 md:mt-12">
 
-          <div className="w-24 h-px bg-[#c8a35d]" />
+          <div className="w-12 md:w-24 h-px bg-[#c8a35d]" />
 
           <div className="text-[#c8a35d]">
             ✦
           </div>
 
-          <div className="w-24 h-px bg-[#c8a35d]" />
+          <div className="w-12 md:w-24 h-px bg-[#c8a35d]" />
 
         </div>
 
         {/* Заголовок */}
 
-        <h2 className="text-center mt-12 font-serif text-5xl">
+        <h2 className="text-center mt-8 md:mt-12 font-serif text-3xl md:text-5xl">
           Мої замітки
         </h2>
 
         {/* Замітки */}
 
-        <div className="mt-10 space-y-6">
+        <div className="mt-8 md:mt-10 space-y-4 md:space-y-6">
 
           {user.notes.map((note) => (
             <Link
@@ -110,17 +110,19 @@ export default async function ProfilePage() {
               href={`/listen/${note.id}`}
               className="
                 block
-                rounded-[28px]
+                rounded-[20px]
+                md:rounded-[28px]
                 border
                 border-[#eadbc2]
                 bg-white/45
                 backdrop-blur-sm
-                p-8
+                p-5
+                md:p-8
                 hover:bg-white/60
                 transition
               "
             >
-              <p className="font-serif text-3xl leading-relaxed">
+              <p className="font-serif text-lg md:text-3xl leading-relaxed break-words">
 
                 {note.text
                   .split(/\s+/)
@@ -131,7 +133,7 @@ export default async function ProfilePage() {
 
               </p>
 
-              <p className="mt-4 text-[#a87b2c]">
+              <p className="mt-3 md:mt-4 text-sm md:text-base text-[#a87b2c]">
                 {note.wordCount} слів
               </p>
 
@@ -139,6 +141,26 @@ export default async function ProfilePage() {
           ))}
 
         </div>
+
+        {user.notes.length === 0 && (
+          <div
+            className="
+              mt-8
+              rounded-[20px]
+              md:rounded-[28px]
+              border
+              border-[#eadbc2]
+              bg-white/45
+              backdrop-blur-sm
+              p-6
+              text-center
+            "
+          >
+            <p className="font-serif text-xl md:text-3xl text-[#a87b2c]">
+              У вас ще немає заміток.
+            </p>
+          </div>
+        )}
 
       </div>
     </main>

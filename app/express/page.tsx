@@ -61,33 +61,32 @@ export default function ExpressPage() {
     remaining >= 0 &&
     !hasLinks;
 
-    async function publishNote() {
-  try {
-    const res = await fetch("/api/notes", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        text,
-      }),
-    });
+  async function publishNote() {
+    try {
+      const res = await fetch("/api/notes", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          text,
+        }),
+      });
 
-    const data = await res.json();
+      const data = await res.json();
 
-    if (!res.ok) {
-      alert(data.error);
-      return;
+      if (!res.ok) {
+        alert(data.error);
+        return;
+      }
+
+      alert("Замітку опубліковано.");
+
+      window.location.href = "/dashboard";
+    } catch {
+      alert("Помилка сервера.");
     }
-
-    alert("Замітку опубліковано.");
-
-    window.location.href = "/dashboard";
-
-  } catch {
-    alert("Помилка сервера.");
   }
-}
 
   return (
     <main
@@ -98,29 +97,29 @@ export default function ExpressPage() {
         backgroundPosition: "center bottom",
       }}
     >
-      <div className="max-w-4xl mx-auto px-8 py-8">
+      <div className="max-w-4xl mx-auto px-4 md:px-8 py-6 md:py-8">
 
         {/* Верх */}
 
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-4">
 
           <Link
             href="/dashboard"
-            className="text-[#b78d3d] hover:underline"
+            className="text-[#b78d3d] hover:underline text-sm md:text-base"
           >
             ← Назад
           </Link>
 
           <div className="text-right">
 
-           <Link
-  href="/profile"
-  className="font-serif text-3xl hover:text-[#b78d3d] transition"
->
-  {user.nickname}
-</Link>
+            <Link
+              href="/profile"
+              className="font-serif text-xl md:text-3xl hover:text-[#b78d3d] transition"
+            >
+              {user.nickname}
+            </Link>
 
-            <div className="w-20 h-[2px] bg-[#b78d3d] mt-2 ml-auto rounded-full"></div>
+            <div className="w-14 md:w-20 h-[2px] bg-[#b78d3d] mt-2 ml-auto rounded-full"></div>
 
           </div>
 
@@ -128,46 +127,50 @@ export default function ExpressPage() {
 
         {/* Заголовок */}
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-8 md:mt-10">
 
           <img
             src="/icons/quill.svg"
             alt=""
-            className="w-16 mx-auto mb-5"
+            className="w-12 md:w-16 mx-auto mb-4 md:mb-5"
           />
 
-          <h1 className="font-serif text-6xl text-[#43253f]">
+          <h1 className="font-serif text-4xl md:text-6xl text-[#43253f]">
             Висловитися
           </h1>
 
-          <p className="mt-5 text-2xl text-[#666]">
+          <p className="mt-4 md:mt-5 text-lg md:text-2xl text-[#666]">
             Напишіть думку,
-            якою хочете поділитися.
+            <br className="md:hidden" />
+            {" "}якою хочете поділитися.
           </p>
 
         </div>
 
         {/* Поле */}
 
-        <div className="mt-12">
+        <div className="mt-8 md:mt-12">
 
           <textarea
             value={text}
-            onChange={(e) =>
-              setText(e.target.value)
-            }
+            onChange={(e) => setText(e.target.value)}
             placeholder="Почніть писати..."
             className="
               w-full
-              h-[380px]
-              rounded-[34px]
+              h-[280px]
+              md:h-[380px]
+              rounded-[24px]
+              md:rounded-[34px]
               border
               border-[#d7c8ab]
               bg-white/90
               backdrop-blur-sm
-              p-8
-              text-xl
-              leading-9
+              p-5
+              md:p-8
+              text-base
+              md:text-xl
+              leading-7
+              md:leading-9
               resize-none
               outline-none
               focus:border-[#b78d3d]
@@ -177,16 +180,17 @@ export default function ExpressPage() {
           />
 
         </div>
-                {/* Повідомлення про посилання */}
+
+        {/* Повідомлення про посилання */}
 
         {hasLinks && (
-          <div className="mt-8 rounded-[28px] border border-[#d8c39a] bg-[#fff8ec] p-6">
+          <div className="mt-6 md:mt-8 rounded-[24px] md:rounded-[28px] border border-[#d8c39a] bg-[#fff8ec] p-4 md:p-6">
 
-            <p className="font-serif text-3xl text-[#b78d3d]">
+            <p className="font-serif text-xl md:text-3xl text-[#b78d3d]">
               У Лаконії не використовують посилання.
             </p>
 
-            <p className="mt-3 text-xl text-[#5f5f5f]">
+            <p className="mt-3 text-base md:text-xl text-[#5f5f5f]">
               Ми цінуємо не адреси сайтів,
               а думки людей.
             </p>
@@ -196,40 +200,40 @@ export default function ExpressPage() {
 
         {/* Статистика */}
 
-        <div className="mt-10 grid grid-cols-3 gap-6">
+        <div className="mt-8 md:mt-10 grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
 
-          <div className="rounded-[28px] bg-white/90 border border-[#e3d7c0] p-6 text-center">
+          <div className="rounded-[24px] md:rounded-[28px] bg-white/90 border border-[#e3d7c0] p-5 md:p-6 text-center">
 
-            <p className="text-[#b78d3d] font-serif text-2xl">
+            <p className="text-[#b78d3d] font-serif text-xl md:text-2xl">
               Баланс
             </p>
 
-            <p className="font-serif text-6xl mt-3">
+            <p className="font-serif text-5xl md:text-6xl mt-3">
               {user.wordBalance}
             </p>
 
           </div>
 
-          <div className="rounded-[28px] bg-white/90 border border-[#e3d7c0] p-6 text-center">
+          <div className="rounded-[24px] md:rounded-[28px] bg-white/90 border border-[#e3d7c0] p-5 md:p-6 text-center">
 
-            <p className="text-[#b78d3d] font-serif text-2xl">
+            <p className="text-[#b78d3d] font-serif text-xl md:text-2xl">
               Замітка
             </p>
 
-            <p className="font-serif text-6xl mt-3">
+            <p className="font-serif text-5xl md:text-6xl mt-3">
               {words}
             </p>
 
           </div>
 
-          <div className="rounded-[28px] bg-white/90 border border-[#e3d7c0] p-6 text-center">
+          <div className="rounded-[24px] md:rounded-[28px] bg-white/90 border border-[#e3d7c0] p-5 md:p-6 text-center">
 
-            <p className="text-[#b78d3d] font-serif text-2xl">
+            <p className="text-[#b78d3d] font-serif text-xl md:text-2xl">
               Після публікації
             </p>
 
             <p
-              className={`font-serif text-6xl mt-3 ${
+              className={`font-serif text-5xl md:text-6xl mt-3 ${
                 remaining < 0
                   ? "text-red-600"
                   : ""
@@ -244,7 +248,7 @@ export default function ExpressPage() {
 
         {/* Правило */}
 
-        <p className="mt-8 text-center text-[#8b7d6d] text-lg">
+        <p className="mt-6 md:mt-8 text-center text-[#8b7d6d] text-sm md:text-lg">
 
           Кожна послідовність символів між пробілами
           вважається одним словом.
@@ -253,16 +257,16 @@ export default function ExpressPage() {
 
         {/* Кнопка */}
 
-        <div className="mt-10 flex justify-center">
+        <div className="mt-8 md:mt-10 flex justify-center">
 
           <button
             onClick={publishNote}
             disabled={!canPublish}
             className={`
               rounded-full
-              px-12
-              py-5
-              text-2xl
+              px-8 md:px-12
+              py-4 md:py-5
+              text-xl md:text-2xl
               font-serif
               transition
 
@@ -280,28 +284,27 @@ export default function ExpressPage() {
 
         {/* Нижня цитата */}
 
-        <div className="mt-16 mb-10">
+        <div className="mt-12 md:mt-16 mb-8 md:mb-10">
 
-          <div className="flex items-center justify-center gap-4">
+          <div className="flex items-center justify-center gap-3 md:gap-4">
 
-            <div className="w-24 h-px bg-[#c8a35d]"></div>
+            <div className="w-12 md:w-24 h-px bg-[#c8a35d]"></div>
 
             <div className="text-[#b78d3d]">
               ✦
             </div>
 
-            <div className="w-24 h-px bg-[#c8a35d]"></div>
+            <div className="w-12 md:w-24 h-px bg-[#c8a35d]"></div>
 
           </div>
 
-          <p className="mt-6 text-center text-[#a87b2c] font-serif text-3xl">
+          <p className="mt-6 text-center text-[#a87b2c] font-serif text-2xl md:text-3xl">
             Слова мають вагу.
           </p>
 
         </div>
 
       </div>
-
     </main>
   );
 }

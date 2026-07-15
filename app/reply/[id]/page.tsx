@@ -124,29 +124,29 @@ export default function ReplyPage() {
         backgroundPosition: "center bottom",
       }}
     >
-      <div className="max-w-4xl mx-auto px-8 py-8">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
 
         {/* Верх */}
 
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center gap-4">
 
           <Link
             href={`/listen/${note.id}`}
-            className="text-[#b78d3d] hover:underline"
+            className="text-[#b78d3d] hover:underline text-sm sm:text-base"
           >
             ← Назад
           </Link>
 
           <div className="text-right">
 
-          <Link
-  href="/profile"
-  className="font-serif text-3xl hover:text-[#b78d3d] transition"
->
-  {user.nickname}
-</Link>
+            <Link
+              href="/profile"
+              className="font-serif text-xl sm:text-2xl lg:text-3xl hover:text-[#b78d3d] transition"
+            >
+              {user.nickname}
+            </Link>
 
-            <div className="w-20 h-[2px] bg-[#b78d3d] mt-2 ml-auto rounded-full"></div>
+            <div className="w-16 sm:w-20 h-[2px] bg-[#b78d3d] mt-2 ml-auto rounded-full"></div>
 
           </div>
 
@@ -154,15 +154,15 @@ export default function ReplyPage() {
 
         {/* Заголовок */}
 
-        <div className="text-center mt-10">
+        <div className="text-center mt-8 sm:mt-10">
 
           <img
             src="/icons/note.png"
             alt=""
-            className="w-16 mx-auto mb-5"
+            className="w-12 sm:w-16 mx-auto mb-4 sm:mb-5"
           />
 
-          <h1 className="font-serif text-6xl">
+          <h1 className="font-serif text-3xl sm:text-5xl lg:text-6xl">
             Долучитися до думки
           </h1>
 
@@ -170,32 +170,32 @@ export default function ReplyPage() {
 
         {/* Початкова думка */}
 
-        <div className="mt-12 rounded-[34px] border border-[#d7c8ab] bg-white/90 p-8">
+        <div className="mt-8 sm:mt-12 rounded-[24px] sm:rounded-[34px] border border-[#d7c8ab] bg-white/90 p-5 sm:p-8">
 
-          <p className="font-serif text-3xl text-[#b78d3d]">
+          <p className="font-serif text-xl sm:text-2xl lg:text-3xl text-[#b78d3d]">
             {note.author.nickname}
           </p>
 
-          <p className="mt-8 whitespace-pre-wrap text-2xl leading-10">
+          <p className="mt-5 sm:mt-8 whitespace-pre-wrap text-lg sm:text-xl lg:text-2xl leading-8 sm:leading-10">
             {note.text}
           </p>
 
         </div>
 
         {ownNote ? (
-          <div className="mt-12 text-center">
+          <div className="mt-10 sm:mt-12 text-center">
 
-            <p className="font-serif text-4xl text-[#b78d3d]">
+            <p className="font-serif text-2xl sm:text-3xl lg:text-4xl text-[#b78d3d]">
               Це ваша думка.
             </p>
 
-            <p className="mt-5 text-xl">
+            <p className="mt-4 sm:mt-5 text-lg sm:text-xl">
               До власної думки долучитися не можна.
             </p>
 
             <Link
               href="/express"
-              className="inline-block mt-10 rounded-full bg-[#311b37] text-white px-10 py-4 text-2xl font-serif"
+              className="inline-block mt-8 sm:mt-10 rounded-full bg-[#311b37] text-white px-6 sm:px-10 py-3 sm:py-4 text-lg sm:text-2xl font-serif"
             >
               Висловитися →
             </Link>
@@ -206,7 +206,7 @@ export default function ReplyPage() {
 
             {/* Поле */}
 
-            <div className="mt-12">
+            <div className="mt-8 sm:mt-12">
 
               <textarea
                 value={text}
@@ -214,14 +214,19 @@ export default function ReplyPage() {
                 placeholder="Що ви хочете додати?"
                 className="
                   w-full
-                  h-[340px]
-                  rounded-[34px]
+                  h-[260px]
+                  sm:h-[340px]
+                  rounded-[24px]
+                  sm:rounded-[34px]
                   border
                   border-[#d7c8ab]
                   bg-white/90
-                  p-8
-                  text-xl
-                  leading-9
+                  p-5
+                  sm:p-8
+                  text-base
+                  sm:text-xl
+                  leading-7
+                  sm:leading-9
                   resize-none
                   outline-none
                   focus:border-[#b78d3d]
@@ -233,13 +238,13 @@ export default function ReplyPage() {
             </div>
 
             {hasLinks && (
-              <div className="mt-8 rounded-[28px] border border-[#d8c39a] bg-[#fff8ec] p-6">
+              <div className="mt-6 sm:mt-8 rounded-[24px] sm:rounded-[28px] border border-[#d8c39a] bg-[#fff8ec] p-5 sm:p-6">
 
-                <p className="font-serif text-3xl text-[#b78d3d]">
+                <p className="font-serif text-xl sm:text-2xl lg:text-3xl text-[#b78d3d]">
                   У Лаконії не використовують посилання.
                 </p>
 
-                <p className="mt-3 text-xl text-[#5f5f5f]">
+                <p className="mt-3 text-base sm:text-lg lg:text-xl text-[#5f5f5f]">
                   Ми цінуємо не адреси сайтів,
                   а думки людей.
                 </p>
@@ -249,40 +254,40 @@ export default function ReplyPage() {
 
             {/* Статистика */}
 
-            <div className="mt-10 grid grid-cols-4 gap-6">
+            <div className="mt-8 sm:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
 
-              <div className="rounded-[28px] bg-white/90 border border-[#e3d7c0] p-6 text-center">
+              <div className="rounded-[24px] sm:rounded-[28px] bg-white/90 border border-[#e3d7c0] p-4 sm:p-6 text-center">
 
-                <p className="text-[#b78d3d] font-serif text-2xl">
+                <p className="text-[#b78d3d] font-serif text-lg sm:text-2xl">
                   Баланс
                 </p>
 
-                <p className="font-serif text-6xl mt-3">
+                <p className="font-serif text-4xl sm:text-5xl lg:text-6xl mt-3">
                   {user.wordBalance}
                 </p>
 
               </div>
 
-              <div className="rounded-[28px] bg-white/90 border border-[#e3d7c0] p-6 text-center">
+              <div className="rounded-[24px] sm:rounded-[28px] bg-white/90 border border-[#e3d7c0] p-4 sm:p-6 text-center">
 
-                <p className="text-[#b78d3d] font-serif text-2xl">
+                <p className="text-[#b78d3d] font-serif text-lg sm:text-2xl">
                   Замітка
                 </p>
 
-                <p className="font-serif text-6xl mt-3">
+                <p className="font-serif text-4xl sm:text-5xl lg:text-6xl mt-3">
                   {words}
                 </p>
 
               </div>
 
-              <div className="rounded-[28px] bg-white/90 border border-[#e3d7c0] p-6 text-center">
+              <div className="rounded-[24px] sm:rounded-[28px] bg-white/90 border border-[#e3d7c0] p-4 sm:p-6 text-center">
 
-                <p className="text-[#b78d3d] font-serif text-2xl">
+                <p className="text-[#b78d3d] font-serif text-lg sm:text-2xl">
                   Після
                 </p>
 
                 <p
-                  className={`font-serif text-6xl mt-3 ${
+                  className={`font-serif text-4xl sm:text-5xl lg:text-6xl mt-3 ${
                     remaining < 0 ? "text-red-600" : ""
                   }`}
                 >
@@ -291,13 +296,13 @@ export default function ReplyPage() {
 
               </div>
 
-              <div className="rounded-[28px] bg-white/90 border border-[#e3d7c0] p-6 text-center">
+              <div className="rounded-[24px] sm:rounded-[28px] bg-white/90 border border-[#e3d7c0] p-4 sm:p-6 text-center">
 
-                <p className="text-[#b78d3d] font-serif text-2xl">
+                <p className="text-[#b78d3d] font-serif text-lg sm:text-2xl">
                   Передано
                 </p>
 
-                <p className="font-serif text-6xl mt-3">
+                <p className="font-serif text-4xl sm:text-5xl lg:text-6xl mt-3">
                   {words}
                 </p>
 
@@ -305,21 +310,24 @@ export default function ReplyPage() {
 
             </div>
 
-            <p className="mt-8 text-center text-[#8b7d6d] text-lg">
+            <p className="mt-6 sm:mt-8 text-center text-[#8b7d6d] text-sm sm:text-lg">
               Кожна послідовність символів між пробілами
               вважається одним словом.
             </p>
 
-            <div className="mt-10 flex justify-center">
+            <div className="mt-8 sm:mt-10 flex justify-center">
 
               <button
                 onClick={publishReply}
                 disabled={!canPublish}
                 className={`
                   rounded-full
-                  px-12
-                  py-5
-                  text-2xl
+                  px-6
+                  sm:px-12
+                  py-3
+                  sm:py-5
+                  text-lg
+                  sm:text-2xl
                   font-serif
                   transition
                   ${

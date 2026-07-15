@@ -40,7 +40,7 @@ export default function LoginPage() {
   }
 
   return (
-    <main className="min-h-screen bg-[#f7f2ea] flex items-center justify-center px-6">
+    <main className="min-h-screen bg-[#f7f2ea] flex items-center justify-center px-4 md:px-6">
       <div className="w-full max-w-md">
 
         <div className="flex justify-center mb-6">
@@ -48,28 +48,37 @@ export default function LoginPage() {
             <img
               src="/logo.png"
               alt="LAKONIA"
-              width={120}
-              className="h-auto cursor-pointer"
+              className="w-20 md:w-[120px] h-auto cursor-pointer"
             />
           </Link>
         </div>
 
-        <h1 className="text-4xl font-serif text-center text-[#37253f]">
+        <h1 className="text-3xl md:text-4xl font-serif text-center text-[#37253f]">
           LAKONIA
         </h1>
 
-        <p className="text-center text-gray-600 mt-2 mb-8">
+        <p className="text-center text-gray-600 mt-2 mb-6 md:mb-8 text-sm md:text-base">
           Вхід
         </p>
 
-        <form onSubmit={handleLogin} className="space-y-5">
+        <form onSubmit={handleLogin} className="space-y-4 md:space-y-5">
 
           <input
             type="email"
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-xl border border-gray-300 p-4 text-lg focus:outline-none focus:ring-2 focus:ring-amber-600"
+            className="
+              w-full
+              rounded-xl
+              border
+              border-gray-300
+              p-3 md:p-4
+              text-base md:text-lg
+              focus:outline-none
+              focus:ring-2
+              focus:ring-amber-600
+            "
           />
 
           <input
@@ -77,22 +86,42 @@ export default function LoginPage() {
             placeholder="Пароль"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-xl border border-gray-300 p-4 text-lg focus:outline-none focus:ring-2 focus:ring-amber-600"
+            className="
+              w-full
+              rounded-xl
+              border
+              border-gray-300
+              p-3 md:p-4
+              text-base md:text-lg
+              focus:outline-none
+              focus:ring-2
+              focus:ring-amber-600
+            "
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-xl bg-[#311b37] text-white py-4 text-xl hover:opacity-90 transition disabled:opacity-50"
+            className="
+              w-full
+              rounded-xl
+              bg-[#311b37]
+              text-white
+              py-3 md:py-4
+              text-lg md:text-xl
+              hover:opacity-90
+              transition
+              disabled:opacity-50
+            "
           >
             {loading ? "Вхід..." : "Увійти"}
           </button>
 
         </form>
 
-        <div className="mt-8 space-y-3 text-center">
+        <div className="mt-6 md:mt-8 space-y-3 text-center">
 
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm md:text-base">
             Забули пароль?{" "}
             <Link
               href="/forgot-password"
@@ -102,7 +131,7 @@ export default function LoginPage() {
             </Link>
           </p>
 
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm md:text-base">
             Ще не учасник?{" "}
             <Link
               href="/register"
@@ -114,7 +143,7 @@ export default function LoginPage() {
 
         </div>
 
-        <footer className="mt-16 pb-6 text-center text-sm text-gray-500">
+        <footer className="mt-10 md:mt-16 pb-4 md:pb-6 text-center text-xs md:text-sm text-gray-500">
           © LAKONIA 2026 • v0.0.2
         </footer>
 

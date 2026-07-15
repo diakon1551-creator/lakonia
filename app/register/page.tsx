@@ -35,34 +35,35 @@ export default function RegisterPage() {
   };
 
   return (
-    <main className="min-h-screen bg-[#f7f2ea] flex items-center justify-center px-6">
+    <main className="min-h-screen bg-[#f7f2ea] flex items-center justify-center px-4 sm:px-6">
       <div className="w-full max-w-md">
-        <div className="flex justify-center mb-6">
+
+        <div className="flex justify-center mb-5 sm:mb-6">
           <Link href="/">
             <img
               src="/logo.png"
               alt="LAKONIA"
-              width={120}
-              className="h-auto cursor-pointer"
+              className="w-24 sm:w-[120px] h-auto cursor-pointer"
             />
           </Link>
         </div>
 
-        <h1 className="text-4xl font-serif text-center text-[#37253f]">
+        <h1 className="text-3xl sm:text-4xl font-serif text-center text-[#37253f]">
           LAKONIA
         </h1>
 
-        <p className="text-center text-gray-600 mt-2 mb-8">
+        <p className="text-center text-gray-600 mt-2 mb-6 sm:mb-8 text-sm sm:text-base">
           Стати учасником
         </p>
 
-        <form onSubmit={handleRegister} className="space-y-5">
+        <form onSubmit={handleRegister} className="space-y-4 sm:space-y-5">
+
           <input
             type="text"
             placeholder="Нік у Лаконії"
             value={nickname}
             onChange={(e) => setNickname(e.target.value)}
-            className="w-full rounded-xl border border-gray-300 p-4 text-lg focus:outline-none focus:ring-2 focus:ring-amber-600"
+            className="w-full rounded-xl border border-gray-300 p-3 sm:p-4 text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-amber-600"
           />
 
           <input
@@ -70,7 +71,7 @@ export default function RegisterPage() {
             placeholder="Email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            className="w-full rounded-xl border border-gray-300 p-4 text-lg focus:outline-none focus:ring-2 focus:ring-amber-600"
+            className="w-full rounded-xl border border-gray-300 p-3 sm:p-4 text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-amber-600"
           />
 
           <input
@@ -78,7 +79,7 @@ export default function RegisterPage() {
             placeholder="Пароль"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            className="w-full rounded-xl border border-gray-300 p-4 text-lg focus:outline-none focus:ring-2 focus:ring-amber-600"
+            className="w-full rounded-xl border border-gray-300 p-3 sm:p-4 text-base sm:text-lg focus:outline-none focus:ring-2 focus:ring-amber-600"
           />
 
           <label className="flex items-start gap-3 text-sm text-gray-700">
@@ -86,7 +87,7 @@ export default function RegisterPage() {
               type="checkbox"
               checked={accepted}
               onChange={(e) => setAccepted(e.target.checked)}
-              className="mt-1 h-4 w-4"
+              className="mt-1 h-4 w-4 flex-shrink-0"
             />
 
             <span>
@@ -103,7 +104,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={!accepted}
-            className={`w-full rounded-xl py-4 text-xl transition ${
+            className={`w-full rounded-xl py-3 sm:py-4 text-lg sm:text-xl transition ${
               accepted
                 ? "bg-[#311b37] text-white hover:opacity-90"
                 : "bg-gray-300 text-gray-500 cursor-not-allowed"
@@ -111,9 +112,10 @@ export default function RegisterPage() {
           >
             Стати учасником
           </button>
+
         </form>
 
-        <p className="text-center mt-8 text-gray-600">
+        <p className="text-center mt-6 sm:mt-8 text-gray-600 text-sm sm:text-base">
           Уже маєте акаунт?{" "}
           <Link
             href="/login"
@@ -123,9 +125,10 @@ export default function RegisterPage() {
           </Link>
         </p>
 
-        <footer className="mt-16 pb-6 text-center text-sm text-gray-500">
+        <footer className="mt-12 sm:mt-16 pb-6 text-center text-xs sm:text-sm text-gray-500">
           © LAKONIA 2026 • v0.0.2
         </footer>
+
       </div>
     </main>
   );
