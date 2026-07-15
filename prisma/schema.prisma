@@ -17,6 +17,7 @@ model User {
   resetCode       String?
   resetExpiresAt  DateTime?
   notes Note[]
+  places Place[]
 }
 
 model Note {
@@ -34,4 +35,20 @@ model Note {
 
   createdAt  DateTime @default(now())
   
+}
+
+model Place {
+  id          Int      @id @default(autoincrement())
+
+  title       String
+  description String
+  wordCount   Int
+
+  latitude    Float
+  longitude   Float
+
+  authorId    Int
+  author      User     @relation(fields: [authorId], references: [id])
+
+  createdAt   DateTime @default(now())
 }
