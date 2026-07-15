@@ -16,7 +16,7 @@ export const metadata = {
   title: "LAKONIA",
   description: "Місце, де слова мають вагу.",
   icons: {
-    icon: "public/icons/logo.png",
+    icon: "/icons/logo.png",
   },
 };
 
