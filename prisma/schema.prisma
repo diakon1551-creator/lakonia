@@ -14,10 +14,13 @@ model User {
   password        String
   wordBalance     Int       @default(0)
   createdAt       DateTime  @default(now())
+
   resetCode       String?
   resetExpiresAt  DateTime?
-  notes Note[]
-  places Place[]
+
+  notes           Note[]
+  places          Place[]
+  verifications   PlaceVerification[]
 }
 
 model Note {
@@ -34,7 +37,6 @@ model Note {
   replies    Note[]   @relation("Replies")
 
   createdAt  DateTime @default(now())
-  
 }
 
 model Place {
@@ -51,4 +53,20 @@ model Place {
   author      User     @relation(fields: [authorId], references: [id])
 
   createdAt   DateTime @default(now())
+
+  verifications PlaceVerification[]
+}
+
+model PlaceVerification {
+  id          Int      @id @default(autoincrement())
+
+  placeId     Int
+  place       Place    @relation(fields: [placeId], references: [id])
+
+  userId      Int
+  user        User     @relation(fields: [userId], references: [id])
+
+  createdAt   DateTime @default(now())
+
+  @@unique([placeId, userId])
 }
